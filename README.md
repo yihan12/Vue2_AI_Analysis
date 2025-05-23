@@ -1,2 +1,2 @@
-# Vue2_Cursor_Analysis
-使用Cursor分析Vue2源码
+# Vue2_AI_Analysis
+使用Cursor、DeepSeek等AI工具逐段分析Vue2源码
