@@ -237,6 +237,13 @@ function pruneCache(keepAliveInstance, filter) {
     this.keys = [] // 初始化 key 列表
 ```
 `Object.create(null)`创建的是无原型的对象，由于对象缓存时无序的，然后利用了有序数组对缓存对象进行排序。
+使用 `Object.create()`，我们可以创建一个原型为 null 的对象。在字面量初始化对象语法中，相当于使用 __proto__ 键。
+
+```javascript
+o = Object.create(null);
+// 等价于：
+o = { __proto__: null };
+```
 
 
 这种实现方式使得`keep-alive`能够高效地管理组件缓存，在保持组件状态的同时，通过LRU算法控制内存使用，是Vue性能优化的重要手段。
