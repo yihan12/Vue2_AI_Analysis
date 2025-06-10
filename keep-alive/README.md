@@ -244,6 +244,6 @@ o = Object.create(null);
 // 等价于：
 o = { __proto__: null };
 ```
-
+由于keep-alive是需要进行缓存和排序，那么新的数据结构Map完全满足需求。可以使用`map.keys().next().value`来取第一个值
 
 这种实现方式使得`keep-alive`能够高效地管理组件缓存，在保持组件状态的同时，通过LRU算法控制内存使用，是Vue性能优化的重要手段。
