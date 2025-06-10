@@ -229,4 +229,14 @@ function pruneCache(keepAliveInstance, filter) {
    - 会递归销毁所有缓存的组件实例
    - 确保不会内存泄漏
 
+## 完整生命周期
+### Mount Phase
+1.**创建缓存对象(cache),和LRU队列(keys)**
+```javascript
+    this.cache = Object.create(null) // 初始化缓存对象
+    this.keys = [] // 初始化 key 列表
+```
+`Object.create(null)`创建的是无原型的对象，由于对象缓存时无序的，然后利用了有序数组对缓存对象进行排序。
+
+
 这种实现方式使得`keep-alive`能够高效地管理组件缓存，在保持组件状态的同时，通过LRU算法控制内存使用，是Vue性能优化的重要手段。
